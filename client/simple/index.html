@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>simple</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      #me {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 15vw;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+      #peers {
+        position: absolute;
+        top: 15vw;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        overflow-y: hidden;
+        overflow-x: scroll;
+      }
+      video {
+        position: relative;
+        width: 12.5vw;
+        height: 12.5vw;
+        background: black;
+        object-fit: contain;
+      }
+      #me video {
+        transform: scaleX(-1);
+      }
+      #chat-buttons {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 10px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+      input[type="button"] {
+        position: relative;
+        margin: 0 0 0 0;
+      }
+      input[type="button"]:not(:first-child) {
+        margin: 0 0 0 5px;
+      }
+      input[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="me"></div>
+    <div id="peers"></div>
+    <div id="chat-buttons">
+      <input id="chat-join-button" type="button" value="JOIN"></input>
+      <input id="chat-leave-button" type="button" value="LEAVE" disabled></input>
+    </div>
+    <script src="index.bundle.js"></script>
+  </body>
+</html>

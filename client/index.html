@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>example</title>
+    <style>
+      body {
+        font-family: monospace;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", () => {
+        const base = location.href.endsWith("/")
+          ? location.href.slice(0, -1)
+          : location.href;
+        document
+          .querySelectorAll(".base")
+          .forEach((ele) => (ele.textContent = base));
+      });
+    </script>
+  </head>
+  <body>
+    To start the videochat open <span class="base"></span>/simple.<br /><br />
+    Unless provided it generates a channelId then reloads itself as
+    <span class="base"></span>/simple?channel=&lt;chanelId&gt;.<br /><br />
+    Open the URL containing the channelId in another browser or tab or send to
+    someone else then press [JOIN] in both.<br /><br />
+    Feel free to invlove more than 2 parties.
+  </body>
+</html>

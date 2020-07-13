@@ -1,0 +1,31 @@
+{
+  "name": "viero-webrtc-sfu-example-server",
+  "version": "1.0.0",
+  "description": "Example server app demonstrating the use of @viero/webrtc-sfu-server and related libraries.",
+  "homepage": "https://github.com/vieroinc/viero-webrtc-sfu-example/server",
+  "contributors": [
+    {
+      "name": "Zoltan Gobolos",
+      "email": "zoltan.gobolos@viero.tv"
+    }
+  ],
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vieroinc/viero-webrtc-sfu-example.git"
+  },
+  "keywords": [
+    "webrtc",
+    "sfu",
+    "videochat"
+  ],
+  "scripts": {
+    "reset": "rm -rf node_modules",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@viero/common-nodejs": "^1.0.9",
+    "@viero/webrtc-sfu-server": "^1.0.4",
+    "@viero/webrtc-signaling-server": "^1.2.3"
+  }
+}

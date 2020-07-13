@@ -1,0 +1,38 @@
+{
+  "name": "viero-webrtc-sfu-example-client",
+  "version": "1.0.0",
+  "description": "Example client app demonstrating the use of @viero/webrtc-sfu-client and related libraries.",
+  "homepage": "https://github.com/vieroinc/viero-webrtc-sfu-example/client",
+  "contributors": [
+    {
+      "name": "Zoltan Gobolos",
+      "email": "zoltan.gobolos@viero.tv"
+    }
+  ],
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vieroinc/viero-webrtc-sfu-example.git"
+  },
+  "keywords": [
+    "webrtc",
+    "sfu",
+    "videochat"
+  ],
+  "scripts": {
+    "start": "hs -p 8080 .",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "@viero/common-web": "^1.0.1",
+    "@viero/webrtc-common": "^1.0.2",
+    "@viero/webrtc-sfu-client": "^1.0.3",
+    "@viero/webrtc-signaling-client": "^1.1.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2",
+    "http-server": "^0.12.3"
+  }
+}
