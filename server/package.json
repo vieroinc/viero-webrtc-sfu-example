@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@viero/common-nodejs": "^1.0.9",
-    "@viero/webrtc-sfu-server": "^1.0.4",
+    "@viero/webrtc-sfu-server": "^1.0.5",
     "@viero/webrtc-signaling-server": "^1.2.3"
   }
 }

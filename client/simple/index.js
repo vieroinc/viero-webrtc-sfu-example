@@ -21,6 +21,7 @@ import { VieroLog } from '@viero/common/log';
 import { VieroWindowUtils as wu } from '@viero/common-web/window/utils';
 import { VieroWebRTCCommon } from '@viero/webrtc-common';
 
+import { VieroWebRTCSignalingClient } from '@viero/webrtc-signaling-client';
 import { VieroWebRTCSFUClient } from "@viero/webrtc-sfu-client";
 
 const urlObj = new URL(location.href);
@@ -44,12 +45,14 @@ chatJoinButton.addEventListener('click', () => {
   }
   chatJoinButton.setAttribute('disabled', '');
   chatLeaveButton.removeAttribute('disabled');
-  state.videochat.join('http://localhost:8090', channel).then(() => {
-    VieroWebRTCSFUClient.createUserStream({ video: true })
-      .then((stream) => state.videochat.setStreams([stream]))
-      .then((stream) => wu.createElement('video', { attributes: { playsinline: '', autoplay: '' }, properties: { srcObject: stream, muted: true }, container: me }));
-  });
+  state.videochat
+    .join(state.signaling)
+    .then(() => VieroWebRTCSFUClient.createUserStream({ video: true }))
+    .then((stream) => state.videochat.setStreams([stream]))
+    .then((stream) => wu.createElement('video', { attributes: { playsinline: '', autoplay: '' }, properties: { srcObject: stream, muted: true }, container: me }));
 });
+
+
 
 chatLeaveButton.addEventListener('click', () => {
   chatJoinButton.removeAttribute('disabled');
@@ -64,6 +67,7 @@ const idBy = (socketId) => {
   return `p${socketId.replace('/', '---').replace('#', '___')}`;
 };
 
+state.signaling = new VieroWebRTCSignalingClient('http://localhost:8090', channel);
 state.videochat = new VieroWebRTCSFUClient();
 state.videochat.addEventListener(VieroWebRTCCommon.EVENT.WEBRTC.STATE_DID_CHANGE, (evt) => {
   console.log(
