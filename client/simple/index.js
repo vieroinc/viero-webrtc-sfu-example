@@ -47,7 +47,7 @@ chatJoinButton.addEventListener('click', () => {
   chatLeaveButton.removeAttribute('disabled');
   state.videochat
     .join(state.signaling)
-    .then(() => VieroWebRTCSFUClient.createUserStream({ video: true }))
+    .then(() => VieroWebRTCSFUClient.createUserStream({ video: true, audio: true }))
     .then((stream) => state.videochat.setStreams([stream]))
     .then((stream) => wu.createElement('video', { attributes: { playsinline: '', autoplay: '' }, properties: { srcObject: stream, muted: true }, container: me }));
 });
