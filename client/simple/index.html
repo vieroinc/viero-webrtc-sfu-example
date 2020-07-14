@@ -15,35 +15,34 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 15vw;
-
+        height: 12rem;
+        padding: 0 0.5rem;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
       }
       #peers {
         position: absolute;
-        top: 15vw;
+        top: 12rem;
         left: 0;
         right: 0;
         bottom: 0;
-
+        padding: 0.5rem;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: flex-start;
-
-        overflow-y: hidden;
-        overflow-x: scroll;
+        align-items: center;
+        justify-content: space-evenly;
       }
       video {
         position: relative;
-        width: 12.5vw;
-        height: 12.5vw;
+        width: 10rem;
+        height: 10rem;
         background: black;
-        object-fit: contain;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 0.5rem solid black;
       }
       #me video {
         transform: scaleX(-1);
@@ -52,8 +51,7 @@
         position: absolute;
         left: 0;
         right: 0;
-        bottom: 10px;
-
+        bottom: 1rem;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -62,6 +60,12 @@
       input[type="button"] {
         position: relative;
         margin: 0 0 0 0;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        border: none;
+        color: white;
+        font-weight: bold;
       }
       input[type="button"]:not(:first-child) {
         margin: 0 0 0 5px;
@@ -69,6 +73,12 @@
       input[disabled] {
         opacity: 0.5;
         pointer-events: none;
+      }
+      #chat-join-button {
+        background: green;
+      }
+      #chat-leave-button {
+        background: red;
       }
     </style>
   </head>
