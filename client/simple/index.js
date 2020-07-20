@@ -16,7 +16,7 @@
 
 'use-strict'
 
-import { VieroUID as uid } from '@viero/common/uid';
+import { shortUId } from '@viero/common/uid';
 import { VieroLog } from '@viero/common/log';
 import { VieroWindowUtils as wu } from '@viero/common-web/window/utils';
 import { VieroWebRTCCommon } from '@viero/webrtc-common';
@@ -27,7 +27,7 @@ import { VieroWebRTCSFUClient } from "@viero/webrtc-sfu-client";
 const urlObj = new URL(location.href);
 const channel = urlObj.searchParams.get('channel');
 if (!channel) {
-  urlObj.searchParams.set('channel', uid.short());
+  urlObj.searchParams.set('channel', shortUId());
   location.href = urlObj.toString();
 }
 

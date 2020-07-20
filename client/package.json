@@ -24,10 +24,10 @@
     "build": "webpack"
   },
   "dependencies": {
-    "@viero/common-web": "^1.0.2",
+    "@viero/common-web": "^1.0.4",
     "@viero/webrtc-common": "^1.0.3",
-    "@viero/webrtc-sfu-client": "^1.0.9",
-    "@viero/webrtc-signaling-client": "^1.1.6"
+    "@viero/webrtc-sfu-client": "^1.0.10",
+    "@viero/webrtc-signaling-client": "^1.1.7"
   },
   "devDependencies": {
     "webpack": "^4.35.3",

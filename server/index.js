@@ -18,7 +18,7 @@ const { VieroLog } = require('@viero/common/log');
 const { VieroError } = require('@viero/common/error');
 const { onEvent } = require('@viero/common-nodejs/event');
 const { VieroHTTPServer } = require('@viero/common-nodejs/http');
-const { bodyFilter } = require('@viero/common-nodejs/http/filters/ext/body');
+const { VieroBodyFilter } = require('@viero/common-nodejs/http/filter/ext/body');
 const { VieroWebRTCSFUServer } = require('@viero/webrtc-sfu-server');
 const { VieroWebRTCSignalingServer } = require('@viero/webrtc-signaling-server');
 const { VieroWebRTCCommon } = require('@viero/webrtc-common');
@@ -60,8 +60,8 @@ const httpServer = new VieroHTTPServer();
 const signalingServer = new VieroWebRTCSignalingServer();
 const sfuServer = new VieroWebRTCSFUServer();
 
-httpServer.setCORSOptions({ origins: ['http://localhost:8080'], headers: ['content-type'] });
-httpServer.registerFilter(bodyFilter, 'bodyFilter');
+httpServer.setCORSOptions({ origins: ['localhost'], headers: ['content-type'] });
+httpServer.registerFilter(new VieroBodyFilter(httpServer), 'bodyFilter');
 httpServer.run({ port: 8090 })
   .then(() => sfuServer.run(httpServer, signalingServer))
   .then(() => log.info('SFU server is up and running on port 8090.'))
