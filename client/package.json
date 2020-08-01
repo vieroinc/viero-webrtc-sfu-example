@@ -24,15 +24,16 @@
     "build": "webpack"
   },
   "dependencies": {
-    "@viero/common-web": "^1.0.4",
+    "@viero/common-web": "^1.0.5",
+    "@viero/ui": "^1.0.0",
     "@viero/webrtc-common": "^1.0.3",
-    "@viero/webrtc-sfu-client": "^1.0.10",
-    "@viero/webrtc-signaling-client": "^1.1.7"
+    "@viero/webrtc-sfu-client": "^1.0.11",
+    "@viero/webrtc-signaling-client": "^1.1.8"
   },
   "devDependencies": {
-    "webpack": "^4.35.3",
+    "http-server": "^0.12.3",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2",
-    "http-server": "^0.12.3"
+    "webpack-dev-server": "^3.7.2"
   }
 }

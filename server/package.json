@@ -24,8 +24,8 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@viero/common-nodejs": "^1.0.14",
-    "@viero/webrtc-sfu-server": "^1.0.9",
-    "@viero/webrtc-signaling-server": "^1.2.7"
+    "@viero/common-nodejs": "^1.1.5",
+    "@viero/webrtc-sfu-server": "^1.0.10",
+    "@viero/webrtc-signaling-server": "^1.2.8"
   }
 }

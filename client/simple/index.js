@@ -18,7 +18,7 @@
 
 import { shortUId } from '@viero/common/uid';
 import { VieroLog } from '@viero/common/log';
-import { VieroWindowUtils as wu } from '@viero/common-web/window/utils';
+import { createElement } from '@viero/ui/utils';
 import { VieroWebRTCCommon } from '@viero/webrtc-common';
 
 import { VieroWebRTCSignalingClient } from '@viero/webrtc-signaling-client';
@@ -49,7 +49,7 @@ chatJoinButton.addEventListener('click', () => {
     .join(state.signaling)
     .then(() => VieroWebRTCSFUClient.createUserStream({ video: true, audio: true }))
     .then((stream) => state.videochat.setStreams([stream]))
-    .then((stream) => wu.createElement('video', { attributes: { playsinline: '', autoplay: '' }, properties: { srcObject: stream, muted: true }, container: me }));
+    .then((stream) => createElement('video', { attributes: { playsinline: '', autoplay: '' }, properties: { srcObject: stream, muted: true }, container: me }));
 });
 
 
@@ -78,7 +78,7 @@ state.videochat.addEventListener(VieroWebRTCCommon.EVENT.WEBRTC.STATE_DID_CHANGE
 });
 state.videochat.addEventListener(VieroWebRTCCommon.EVENT.PEER.DID_ENTER, (evt) => {
   console.log('PEER.DID_ENTER', evt.detail.peer.socketId);
-  wu.createElement('video', { attributes: { id: idBy(evt.detail.peer.socketId), playsinline: '', autoplay: '' }, container: peers });
+  createElement('video', { attributes: { id: idBy(evt.detail.peer.socketId), playsinline: '', autoplay: '' }, container: peers });
 });
 state.videochat.addEventListener(VieroWebRTCCommon.EVENT.PEER.DID_LEAVE, (evt) => {
   console.log('PEER.DID_LEAVE', evt.detail.peer.socketId);
