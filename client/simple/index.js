@@ -23,6 +23,7 @@ import { VieroWebRTCCommon } from '@viero/webrtc-common';
 
 import { VieroWebRTCSignalingClient } from '@viero/webrtc-signaling-client';
 import { VieroWebRTCSFUClient } from "@viero/webrtc-sfu-client";
+import { canGetUserStream, getUserStream } from "@viero/common-web/video";
 
 const urlObj = new URL(location.href);
 const channel = urlObj.searchParams.get('channel');
@@ -40,14 +41,14 @@ const chatJoinButton = document.querySelector('#chat-join-button');
 const chatLeaveButton = document.querySelector('#chat-leave-button');
 
 chatJoinButton.addEventListener('click', () => {
-  if (!VieroWebRTCSFUClient.canCreateUserStream()) {
+  if (!canGetUserStream()) {
     return alert('Your browser is missing the required technology for WebRTC!');
   }
   chatJoinButton.setAttribute('disabled', '');
   chatLeaveButton.removeAttribute('disabled');
   state.videochat
     .join(state.signaling)
-    .then(() => VieroWebRTCSFUClient.createUserStream({ video: true, audio: true }))
+    .then(() => getUserStream({ video: true, audio: true }))
     .then((stream) => state.videochat.setStreams([stream]))
     .then((stream) => createElement('video', { attributes: { playsinline: '', autoplay: '' }, properties: { srcObject: stream, muted: true }, container: me }));
 });
